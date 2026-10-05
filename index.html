@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ca"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#3156d3"><link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css"><title>Kaixo · Euskera</title></head>
+<body><div id="app">
+<header><div><span class="eyebrow">KAIXO</span><h1>Aprèn euskera</h1></div><div class="streak">🔥 <b id="streak">0</b></div></header>
+<main id="home">
+<section class="hero"><div class="hero-icon">K</div><div><h2>Ongi etorri!</h2><p>Sessions curtes, divertides i al teu ritme.</p></div></section>
+<section class="stats"><div><b id="points">0</b><span>Punts</span></div><div><b id="done">0</b><span>Lliçons</span></div><div><b>Hasiberria</b><span>Nivell</span></div></section>
+<h2 class="section-title">El teu camí</h2>
+<div class="levels">
+<button class="level-card active" onclick="openLesson(1)"><span class="badge">A1</span><div><b>A1 · Hasiberria</b><small>Comença des de zero · 28 lliçons</small></div><span>›</span></button>
+<div class="level-card locked"><span class="badge">A2</span><div><b>A2 · Intermedi</b><small>Desbloqueja completant A1</small></div><span>🔒</span></div>
+<div class="level-card locked"><span class="badge">B1</span><div><b>B1 · Intermedi avançat</b><small>Desbloqueja completant A2</small></div><span>🔒</span></div>
+</div>
+<section class="next"><div><small>SEGÜENT</small><h3>Lliçó 1 · Kaixo!</h3><p>Salutacions i comiat</p></div><button onclick="openLesson(1)">Començar</button></section>
+</main><main id="lesson" class="hidden"></main></div>
+<script src="app.js"></script><script>if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");</script>
+</body></html>
