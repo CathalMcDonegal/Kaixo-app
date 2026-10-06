@@ -1,4 +1,4 @@
-const CACHE = "kaixo-v4";
+const CACHE = "kaixo-v5";
 const ASSETS = [
   "./",
   "./index.html",
