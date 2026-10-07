@@ -1,0 +1,21 @@
+KAIXO — VERSIÓ COMPLETA ACTUALITZADA
+
+Base:
+- Versió completa funcional de Kaixo (v3)
+- Correcció del Service Worker mantinguda
+
+Actualització:
+- Motor de lliçons A1 enriquit
+- Contingut de les primeres lliçons ampliat
+- Puntuació, progrés i ratxa conservats
+- Estructura PWA completa conservada
+
+IMPORTANT:
+1. Puja TOTS els fitxers d'aquest ZIP al repositori.
+2. Substitueix els fitxers existents quan GitHub ho demani.
+3. No esborres cap fitxer del repositori que no aparegui al ZIP.
+4. Després de pujar-ho, espera uns minuts perquè GitHub Pages publiqui la nova versió.
+5. Si el mòbil mostra una versió antiga, tanca completament la PWA i torna-la a obrir.
+
+Inclou app.js.original-v3 com a còpia de seguretat del JavaScript anterior.
+Aquest fitxer no és necessari per executar l'app.

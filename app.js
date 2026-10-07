@@ -1,26 +1,259 @@
-const bank={
-1:{title:'Kaixo!',subtitle:'Salutacions, comiat i cortesia',objective:"Saluda, acomiada't, dona les gràcies i demana disculpes.",grammar:'En euskera, les salutacions són expressions fixes: Kaixo! és Hola!, Agur és Adéu i Eskerrik asko és Gràcies.',words:[['Kaixo','Hola'],['Agur','Adéu'],['Egun on','Bon dia'],['Arratsalde on','Bona tarda'],['Gabon','Bona nit'],['Eskerrik asko','Gràcies'],['Mesedez','Si us plau'],['Barkatu','Perdó'],['Ikusi arte','Fins aviat'],['Ongi etorri','Benvingut'],['Mila esker','Moltes gràcies'],['Ez horregatik','De res']],phrases:[['Kaixo, egun on!','Hola, bon dia!'],['Eskerrik asko.','Gràcies.'],['Ez horregatik.','De res.'],['Barkatu, mesedez.','Perdona, si us plau.'],['Agur, ikusi arte!','Adéu, fins aviat!'],['Ongi etorri!','Benvingut!']],dialogue:[['A','Kaixo! Egun on!'],['B','Egun on!'],['A','Eskerrik asko.'],['B','Ez horregatik.'],['A','Agur! Ikusi arte!'],['B','Agur!']],situations:[['Arribes al matí i saludes.','Egun on'],['Et despedeixes d’un amic.','Agur'],['Algú t’ajuda i vols donar les gràcies.','Eskerrik asko'],['Demanes alguna cosa amb educació.','Mesedez'],['Et vols disculpar.','Barkatu'],['Et trobes algú i vols dir hola.','Kaixo']]},
-2:{title:'Ni… naiz',subtitle:'Presentar-se i conèixer algú',objective:'Presenta’t, pregunta el nom i identifica persones.',grammar:'Per presentar-te pots usar Ni ... naiz (Jo soc ...). Per adreçar-te a una persona, Zu és tu. Nor? significa Qui?',words:[['ni','jo'],['zu','tu'],['hura','ell/ella'],['gu','nosaltres'],['zuek','vosaltres'],['nor','qui'],['zer','què'],['izena','nom'],['naiz','soc'],['zara','ets'],['da','és'],['ikaslea','estudiant'],['laguna','amic/ga']],phrases:[['Ni Ane naiz.','Jo soc l’Ane.'],['Zein da zure izena?','Com et dius?'],['Nire izena Jon da.','El meu nom és Jon.'],['Nor da hura?','Qui és ell/ella?'],['Ni ikaslea naiz.','Soc estudiant.'],['Zu laguna zara.','Tu ets amic/amiga.']],dialogue:[['A','Kaixo! Ni Ane naiz.'],['B','Kaixo, Ane! Ni Jon naiz.'],['A','Zein da zure izena?'],['B','Nire izena Jon da.'],['A','Nor da hura?'],['B','Hura Maite da.']],situations:[['Parles de tu.','ni'],['Parles directament amb una persona.','zu'],['Preguntes qui és algú.','nor'],['Dius que ets estudiant.','ikaslea'],['Preguntes el nom d’algú.','Zein da zure izena?'],['Dius “jo soc...”.','naiz']]},
-3:{title:'Bai ala ez?',subtitle:'Afirmar, negar i confirmar',objective:'Afirmar, negar, dubtar i confirmar informació senzilla.',grammar:'Bai vol dir sí i ez vol dir no. Ez dakit és No ho sé. Agian és Potser. Ados expressa acord.',words:[['bai','sí'],['ez','no'],['ez dakit','no ho sé'],['agian','potser'],['ados','d’acord'],['noski','és clar'],['egia','veritat'],['oker','incorrecte'],['bada','doncs sí'],['ez da','no és'],['bai, noski','sí, és clar'],['ez horixe','no, exactament']],phrases:[['Bai, ados.','Sí, d’acord.'],['Ez, ez da horrela.','No, no és així.'],['Ez dakit.','No ho sé.'],['Agian bihar.','Potser demà.'],['Noski baietz!','És clar que sí!'],['Egia da.','És veritat.']],dialogue:[['A','Bihar etorriko zara?'],['B','Agian.'],['A','Ados.'],['B','Bai, noski.'],['A','Gaur etorriko zara?'],['B','Ez.']],situations:[['Acceptes una proposta.','bai'],['Rebutges una proposta.','ez'],['No coneixes la resposta.','ez dakit'],['No n’estàs segur.','agian'],['Mostres conformitat.','ados'],['Confirmes una cosa.','noski']]},
-4:{title:'Mesedez!',subtitle:'Cortesia i petites peticions',objective:'Utilitza expressions de cortesia en situacions quotidianes.',grammar:'Mesedez acompanya una petició. Barkatu serveix per disculpar-se o cridar l’atenció. Eskerrik asko agraeix i Ez horregatik respon a les gràcies.',words:[['mesedez','si us plau'],['barkatu','perdó'],['eskerrik asko','gràcies'],['mila esker','moltes gràcies'],['ez horregatik','de res'],['aizu','escolta / ei'],['ongi','bé'],['oso ondo','molt bé'],['txarto','malament'],['mesedez, lagundu','si us plau, ajuda’m'],['barkatu, non dago...?','perdona, on és...?'],['ondo','bé/correctament']],phrases:[['Mesedez, lagundu.','Si us plau, ajuda’m.'],['Barkatu, non dago geltokia?','Perdona, on és l’estació?'],['Mila esker!','Moltes gràcies!'],['Ez horregatik.','De res.'],['Oso ondo!','Molt bé!'],['Aizu, mesedez!','Escolta, si us plau!']],dialogue:[['A','Barkatu, mesedez.'],['B','Bai?'],['A','Non dago geltokia?'],['B','Hortik.'],['A','Mila esker!'],['B','Ez horregatik.']],situations:[['Demanes ajuda.','Mesedez, lagundu'],['Vols cridar l’atenció educadament.','Aizu'],['Dones les gràcies.','Mila esker'],['Respons a unes gràcies.','Ez horregatik'],['Dius que tot està molt bé.','Oso ondo'],['Comences una pregunta amb disculpa.','Barkatu']]},
-5:{title:'Lehenengo errepasoa',subtitle:'Repàs de les primeres expressions',objective:'Combina salutacions, presentacions i cortesia.',grammar:'Ara combinem les expressions anteriors en frases curtes. L’objectiu és reconèixer-les dins d’una situació, no memoritzar-les aïllades.',words:[['kaixo','hola'],['agur','adéu'],['egun on','bon dia'],['eskerrik asko','gràcies'],['mesedez','si us plau'],['barkatu','perdó'],['bai','sí'],['ez','no'],['ni','jo'],['zu','tu'],['izena','nom'],['naiz','soc'],['nor','qui'],['ez dakit','no ho sé'],['ados','d’acord']],phrases:[['Kaixo, ni Jon naiz.','Hola, soc en Jon.'],['Zein da zure izena?','Com et dius?'],['Eskerrik asko!','Gràcies!'],['Ez horregatik.','De res.'],['Barkatu, mesedez.','Perdona, si us plau.'],['Agur, ikusi arte!','Adéu, fins aviat!']],dialogue:[['A','Kaixo! Ni Jon naiz.'],['B','Kaixo! Ni Ane naiz.'],['A','Zein da zure izena?'],['B','Nire izena Ane da.'],['A','Eskerrik asko!'],['B','Ez horregatik.']],situations:[['Arribes i saludes.','Kaixo'],['Et presentes.','Ni Jon naiz.'],['Preguntes el nom.','Zein da zure izena?'],['Dones les gràcies.','Eskerrik asko'],['No coneixes la resposta.','Ez dakit'],['T’acomiades.','Agur']]},
-6:{title:'Zenbakiak',subtitle:'Els números de l’1 al 10',objective:'Reconeix i utilitza els primers números.',grammar:'Els números apareixen constantment en preus, edats, hores i quantitats. Aprenem-los dins de petites situacions.',words:[['bat','1'],['bi','2'],['hiru','3'],['lau','4'],['bost','5'],['sei','6'],['zazpi','7'],['zortzi','8'],['bederatzi','9'],['hamar','10'],['hamaika','11'],['hamabi','12']],phrases:[['bat, bi, hiru','un, dos, tres'],['bi lagun','dues persones'],['hiru euro','tres euros'],['bost urte','cinc anys'],['hamar minutu','deu minuts'],['lau egun','quatre dies']],dialogue:[['A','Zenbat?'],['B','Hiru.'],['A','Hiru euro?'],['B','Bai, hiru euro.'],['A','Eta zenbat pertsona?'],['B','Bi.']],situations:[['Vols dir 1.','bat'],['Vols dir 2.','bi'],['Vols dir 3.','hiru'],['Vols dir 5.','bost'],['Vols dir 8.','zortzi'],['Vols dir 10.','hamar']]},
-7:{title:'Etxea',subtitle:'La casa i els espais',objective:'Identifica espais i objectes bàsics de la llar.',grammar:'Molts noms quotidians es poden aprendre millor relacionant-los amb accions: dormir, cuinar, seure, obrir...',words:[['etxea','casa'],['atea','porta'],['leihoa','finestra'],['mahaia','taula'],['aulkia','cadira'],['ohea','llit'],['sukaldea','cuina'],['bainugela','bany'],['egongela','sala d’estar'],['gela','habitació'],['zorua','terra'],['horma','paret'],['argia','llum'],['sarrera','entrada']],phrases:[['Hau nire etxea da.','Aquesta és casa meva.'],['Atea ireki.','Obre la porta.'],['Leihoa itxi.','Tanca la finestra.'],['Sukaldean nago.','Soc a la cuina.'],['Ohean nago.','Soc al llit.'],['Egongelan gaude.','Som a la sala.']],dialogue:[['A','Non zaude?'],['B','Sukaldean nago.'],['A','Eta non dago mahaia?'],['B','Egongelan.'],['A','Eta gela?'],['B','Hor dago.']],situations:[['Parles de la llar.','etxea'],['Obres una entrada.','atea'],['Hi entra llum.','leihoa'],['Hi poses el menjar.','mahaia'],['T’hi asseus.','aulkia'],['Hi cuines.','sukaldea']]},
-8:{title:'Familia',subtitle:'La família i les persones properes',objective:'Parla de familiars propers i identifica relacions.',grammar:'Aprenem els noms de família en frases curtes, perquè siguin útils quan parlem de persones reals.',words:[['ama','mare'],['aita','pare'],['anaia','germà'],['arreba','germana'],['semea','fill'],['alaba','filla'],['amona','àvia'],['aitona','avi'],['osaba','oncle'],['izeba','tieta'],['familia','família'],['gurasoak','pares'],['haurra','infant'],['senarra','marit']],phrases:[['Hau nire ama da.','Aquesta és la meva mare.'],['Hura nire aita da.','Aquell és el meu pare.'],['Nire anaia da.','És el meu germà.'],['Bi seme-alaba ditut.','Tinc dos fills.'],['Nire familia.','La meva família.'],['Haurrak etxean daude.','Els infants són a casa.']],dialogue:[['A','Nor da hura?'],['B','Nire ama da.'],['A','Eta hura?'],['B','Nire anaia.'],['A','Familia handia?'],['B','Bai, familia handia.']],situations:[['Parles de la teva mare.','ama'],['Parles del teu pare.','aita'],['Parles del teu germà.','anaia'],['Parles de la teva germana.','arreba'],['Parles del teu fill.','semea'],['Parles de la teva família.','familia']]},
-9:{title:'Koloreak',subtitle:'Colors en objectes quotidians',objective:'Reconeix colors i utilitza’ls per descriure coses.',grammar:'Els colors es presenten com a vocabulari descriptiu i es reutilitzen amb objectes.',words:[['gorria','vermell'],['urdina','blau'],['berdea','verd'],['horia','groc'],['beltza','negre'],['zuria','blanc'],['laranja','taronja'],['morea','lila'],['arrosa','rosa'],['marroia','marró'],['grisa','gris'],['urdin argia','blau clar']],phrases:[['Kolore gorria.','Color vermell.'],['Auto urdina.','Cotxe blau.'],['Etxe zuria.','Casa blanca.'],['Atea beltza.','Porta negra.'],['Mahaia marroia.','Taula marró.'],['Zein kolore da?','De quin color és?']],dialogue:[['A','Zein kolore da autoa?'],['B','Urdina.'],['A','Eta atea?'],['B','Beltza.'],['A','Eta mahaia?'],['B','Marroia.']],situations:[['Vols dir vermell.','gorria'],['Vols dir blau.','urdina'],['Vols dir verd.','berdea'],['Vols dir groc.','horia'],['Vols dir negre.','beltza'],['Vols dir blanc.','zuria']]},
-10:{title:'Egunerokoa',subtitle:'Avui, demà, ahir i moments del dia',objective:'Parla de quan passen les coses i amb quina freqüència.',grammar:'Gaur és avui, bihar demà i atzo ahir. Goizean, arratsaldean i gauean situen una acció en el dia.',words:[['gaur','avui'],['bihar','demà'],['atzo','ahir'],['orain','ara'],['gero','després'],['goizean','al matí'],['arratsaldean','a la tarda'],['gauean','a la nit'],['beti','sempre'],['inoiz ez','mai'],['askotan','sovint'],['batzuetan','a vegades'],['egunero','cada dia'],['astelehenean','dilluns']],phrases:[['Gaur etxean nago.','Avui soc a casa.'],['Bihar lanera noa.','Demà vaig a la feina.'],['Atzo etxean nengoen.','Ahir era a casa.'],['Orain hemen nago.','Ara soc aquí.'],['Gero etorriko naiz.','Després vindré.'],['Goizean lan egiten dut.','Al matí treballo.']],dialogue:[['A','Zer egiten duzu gaur?'],['B','Lan egiten dut.'],['A','Eta bihar?'],['B','Bihar etxean nago.'],['A','Eta orain?'],['B','Orain hemen nago.']],situations:[['Parles d’avui.','gaur'],['Parles de demà.','bihar'],['Parles d’ahir.','atzo'],['Parles del moment actual.','orain'],['Parles d’una acció posterior.','gero'],['Parles del matí.','goizean']]}
+const lessons = {
+  1: {
+    title: "Kaixo!",
+    subtitle: "Salutacions, presentacions i comiat",
+    objective: "Avui aprendràs a saludar, preguntar com està algú, presentar-te i acomiadar-te.",
+    intro: {
+      title: "Una situació real",
+      dialogue: [
+        ["Ane", "Kaixo! Egun on!"],
+        ["Jon", "Kaixo! Egun on! Zer moduz?"],
+        ["Ane", "Oso ondo, eskerrik asko. Eta zu?"],
+        ["Jon", "Ni ere oso ondo. Ni Jon naiz. Eta zu?"],
+        ["Ane", "Ni Ane naiz. Laster arte!"],
+        ["Jon", "Agur! Ikusi arte!"]
+      ],
+      phrases: [
+        ["Kaixo!", "Hola!"], ["Egun on!", "Bon dia!"],
+        ["Arratsalde on!", "Bona tarda!"], ["Gabon!", "Bona nit!"],
+        ["Zer moduz?", "Com estàs? / Com va?"], ["Oso ondo.", "Molt bé."],
+        ["Eskerrik asko.", "Moltes gràcies."], ["Eta zu?", "I tu?"],
+        ["Ni Jon naiz.", "Jo soc en Jon."], ["Agur!", "Adéu!"],
+        ["Laster arte!", "Fins aviat!"], ["Ikusi arte!", "Fins després / Fins que ens tornem a veure!"]
+      ],
+      grammar: "Per presentar-te pots dir «Ni + nom + naiz»: Ni Ane naiz. Per preguntar el nom: «Zu nor zara?». «Zer moduz?» serveix per preguntar com està algú."
+    },
+    questions: [
+      ["Arribes al matí a una botiga. Què diries primer?", ["Egun on!", "Agur!", "Gabon!"], "Egun on!"],
+      ["Algú et diu «Zer moduz?». Quina resposta és natural?", ["Oso ondo, eskerrik asko.", "Agur, mesedez.", "Gabon, ez."], "Oso ondo, eskerrik asko."],
+      ["Completa: «Ni Jon ___».", ["naiz", "zara", "da"], "naiz"],
+      ["Com diries «I tu?»", ["Eta zu?", "Zu nor?", "Agur zu?"], "Eta zu?"],
+      ["Algú et pregunta «Zu nor zara?». Què contestes?", ["Ni Ane naiz.", "Oso ondo.", "Egun on."], "Ni Ane naiz."],
+      ["És de nit i arribes a casa d'algú. Què pots dir?", ["Gabon!", "Egun on!", "Arratsalde on!"], "Gabon!"],
+      ["Què vol dir «Eskerrik asko»?", ["Moltes gràcies", "Fins aviat", "Com estàs?"], "Moltes gràcies"],
+      ["Vols acomiadar-te i dir «Fins aviat!».", ["Laster arte!", "Zer moduz?", "Ni naiz!"], "Laster arte!"],
+      ["Quina opció és un comiat?", ["Ikusi arte!", "Egun on!", "Zer moduz?"], "Ikusi arte!"],
+      ["Ordena mentalment: presentació correcta.", ["Ni Ane naiz.", "Ane ni zara.", "Naiz Ane zu."], "Ni Ane naiz."],
+      ["Un amic et diu «Kaixo!». Què pots respondre?", ["Kaixo!", "Gabon!", "Agur!"], "Kaixo!"],
+      ["Quina expressió pots utilitzar després de dir «Oso ondo» per preguntar per l'altra persona?", ["Eta zu?", "Agur!", "Egun on!"], "Eta zu?"],
+      ["Completa el diàleg: «Kaixo! — ___! Zer moduz?»", ["Kaixo", "Agur", "Gabon"], "Kaixo"],
+      ["Quina frase et permet presentar-te directament?", ["Ni Jon naiz.", "Zer moduz?", "Laster arte!"], "Ni Jon naiz."]
+    ]
+  },
+  2: {
+    title: "Ni… naiz",
+    subtitle: "Presentar-se i donar informació personal",
+    objective: "Aprèn a dir qui ets, com et dius i d'on ets.",
+    intro: {
+      title: "Ara ja pots iniciar una conversa",
+      dialogue: [
+        ["Maialen", "Kaixo! Zu nor zara?"],
+        ["Iker", "Ni Iker naiz. Eta zu?"],
+        ["Maialen", "Ni Maialen naiz. Nongoa zara?"],
+        ["Iker", "Bartzelonakoa naiz. Eta zu?"],
+        ["Maialen", "Bilbokoa naiz. Ongi etorri!"]
+      ],
+      phrases: [
+        ["Zu nor zara?", "Qui ets?"], ["Ni … naiz.", "Jo soc …"],
+        ["Nire izena … da.", "Em dic …"], ["Nongoa zara?", "D'on ets?"],
+        ["…-koa naiz.", "Soc de …"], ["Eta zu?", "I tu?"],
+        ["Ongi etorri!", "Benvingut/da!"]
+      ],
+      grammar: "«Ni» és jo i «zu» és tu. Amb «naiz» pots dir «soc»: Ni Jon naiz. Per dir d'on ets, pots utilitzar «-koa»: Bartzelonakoa naiz."
+    },
+    questions: [
+      ["Què vol dir «Zu nor zara?»", ["Qui ets?", "D'on ets?", "Com estàs?"], "Qui ets?"],
+      ["Completa: «Ni Ane ___».", ["naiz", "zara", "da"], "naiz"],
+      ["Com diries «Em dic Jon»?", ["Nire izena Jon da.", "Jon zara.", "Jon agur da."], "Nire izena Jon da."],
+      ["Què vol dir «Nongoa zara?»", ["D'on ets?", "Qui ets?", "Com estàs?"], "D'on ets?"],
+      ["Completa: «Bartzelonakoa ___».", ["naiz", "zara", "gara"], "naiz"],
+      ["Si ets de Bilbao, quina resposta encaixa?", ["Bilbokoa naiz.", "Bilbokoa zara.", "Bilbo nor naiz."], "Bilbokoa naiz."],
+      ["Quina frase significa «I tu?»", ["Eta zu?", "Zu nor zara?", "Nongoa zara?"], "Eta zu?"],
+      ["Algú et diu «Ongi etorri!». Què està fent?", ["Et dona la benvinguda", "S'acomiada", "Et pregunta el nom"], "Et dona la benvinguda"],
+      ["Quina frase és una presentació correcta?", ["Ni Marta naiz.", "Marta zara ni.", "Naiz zu Marta."], "Ni Marta naiz."]
+    ]
+  },
+  3: {
+    title: "Bai / Ez",
+    subtitle: "Afirmar, negar i reaccionar",
+    objective: "Aprèn a respondre afirmativament o negativament i a dir que no ho saps.",
+    intro: {
+      title: "Parlar sense complicar-te",
+      dialogue: [
+        ["A", "Euskalduna zara?"], ["B", "Bai."],
+        ["A", "Bartzelonakoa zara?"], ["B", "Ez. Bilbokoa naiz."],
+        ["A", "Badakizu euskaraz?"], ["B", "Ez dakit."]
+      ],
+      phrases: [
+        ["Bai.", "Sí."], ["Ez.", "No."], ["Bai, eskerrik asko.", "Sí, gràcies."],
+        ["Ez, eskerrik asko.", "No, gràcies."], ["Ados.", "D'acord."],
+        ["Ez dakit.", "No ho sé."], ["Badakit.", "Ho sé."]
+      ],
+      grammar: "En una resposta curta, «Bai» afirma i «Ez» nega. «Ez dakit» vol dir «No ho sé»."
+    },
+    questions: [
+      ["Què vol dir «Bai»?", ["Sí", "No", "No ho sé"], "Sí"],
+      ["Què vol dir «Ez»?", ["Sí", "No", "D'acord"], "No"],
+      ["Com diries «No ho sé»?", ["Ez dakit", "Bai dakit", "Agur dakit"], "Ez dakit"],
+      ["Algú et pregunta una cosa i no en coneixes la resposta. Què dius?", ["Ez dakit.", "Bai.", "Agur."], "Ez dakit."],
+      ["Quina resposta significa «D'acord»?", ["Ados.", "Ez.", "Gabon."], "Ados."],
+      ["Com pots rebutjar educadament una oferta?", ["Ez, eskerrik asko.", "Ez dakit, agur.", "Bai, agur."], "Ez, eskerrik asko."],
+      ["«Bai, eskerrik asko» significa…", ["Sí, gràcies", "No, gràcies", "No ho sé"], "Sí, gràcies"]
+    ]
+  },
+  4: {
+    title: "Cortesia bàsica",
+    subtitle: "Expressions que faràs servir cada dia",
+    objective: "Aprèn a donar les gràcies, demanar alguna cosa, disculpar-te i respondre amb educació.",
+    intro: {
+      title: "Petites paraules, grans diferències",
+      dialogue: [
+        ["A", "Barkatu. Ogia, mesedez."], ["B", "Bai, noski."],
+        ["A", "Eskerrik asko!"], ["B", "Ez horregatik."],
+        ["A", "Mila esker."], ["B", "Ez horregatik!"]
+      ],
+      phrases: [
+        ["Eskerrik asko.", "Gràcies."], ["Mila esker.", "Moltes gràcies."],
+        ["Mesedez.", "Si us plau."], ["Barkatu.", "Perdó / Disculpa."],
+        ["Ez horregatik.", "De res."], ["Ongi etorri!", "Benvingut/da!"]
+      ],
+      grammar: "«Mesedez» acompanya sovint una petició. «Barkatu» serveix per disculpar-te o cridar l'atenció d'algú amb educació."
+    },
+    questions: [
+      ["Com diries «Gràcies»?", ["Eskerrik asko", "Mesedez", "Barkatu"], "Eskerrik asko"],
+      ["Què vol dir «Mesedez»?", ["Si us plau", "Perdó", "Benvingut"], "Si us plau"],
+      ["Què vol dir «Barkatu»?", ["Perdó / Disculpa", "Gràcies", "Adéu"], "Perdó / Disculpa"],
+      ["Algú t'ajuda. Què dius?", ["Eskerrik asko.", "Mesedez.", "Barkatu."], "Eskerrik asko."],
+      ["Vols demanar pa amb educació. Què afegeixes a la petició?", ["Mesedez.", "Agur.", "Bai."], "Mesedez."],
+      ["Algú et diu «Eskerrik asko». Quina resposta encaixa?", ["Ez horregatik.", "Barkatu.", "Gabon."], "Ez horregatik."],
+      ["«Mila esker» expressa…", ["Agraïment", "Negació", "Comiat"], "Agraïment"]
+    ]
+  },
+  5: {
+    title: "Repàs!",
+    subtitle: "Mini-joc: sobreviu a la primera conversa",
+    objective: "Combina el que has après per resoldre una conversa quotidiana.",
+    intro: {
+      title: "Missió",
+      dialogue: [
+        ["Situació", "Entres en un bar i vols saludar."], ["Tu", "Kaixo! Egun on!"],
+        ["Situació", "La persona et pregunta com estàs."], ["Tu", "Oso ondo, eskerrik asko. Eta zu?"],
+        ["Situació", "Et pregunta qui ets."], ["Tu", "Ni … naiz. Laster arte!"]
+      ],
+      phrases: [
+        ["Kaixo!", "Hola!"], ["Egun on!", "Bon dia!"], ["Zer moduz?", "Com estàs?"],
+        ["Oso ondo.", "Molt bé."], ["Eta zu?", "I tu?"], ["Ni … naiz.", "Jo soc …"],
+        ["Eskerrik asko.", "Gràcies."], ["Mesedez.", "Si us plau."],
+        ["Barkatu.", "Perdó."], ["Agur!", "Adéu!"], ["Laster arte!", "Fins aviat!"]
+      ],
+      grammar: "Ara no busquem traduir paraules aïllades: l'objectiu és escollir l'expressió adequada segons la situació."
+    },
+    questions: [
+      ["Arribes al matí a un lloc. Quina és una bona entrada?", ["Kaixo! Egun on!", "Agur! Gabon!", "Mesedez!"], "Kaixo! Egun on!"],
+      ["Et pregunten «Zer moduz?»", ["Oso ondo, eskerrik asko.", "Ni Jon naiz.", "Laster arte."], "Oso ondo, eskerrik asko."],
+      ["Vols saber qui és l'altra persona.", ["Zu nor zara?", "Nongoa zara?", "Zer moduz?"], "Zu nor zara?"],
+      ["Vols presentar-te.", ["Ni Ane naiz.", "Eta zu?", "Agur!"], "Ni Ane naiz."],
+      ["Vols demanar alguna cosa amb educació.", ["Mesedez.", "Bai.", "Agur."], "Mesedez."],
+      ["Has interromput algú i vols disculpar-te.", ["Barkatu.", "Eskerrik asko.", "Gabon."], "Barkatu."],
+      ["Algú t'ajuda.", ["Eskerrik asko.", "Ez dakit.", "Agur."], "Eskerrik asko."],
+      ["Et diuen «Eskerrik asko».", ["Ez horregatik.", "Mesedez.", "Barkatu."], "Ez horregatik."],
+      ["Te'n vas i vols dir «Fins aviat».", ["Laster arte!", "Egun on!", "Zer moduz?"], "Laster arte!"],
+      ["Quina opció és un comiat?", ["Ikusi arte!", "Zu nor zara?", "Oso ondo."], "Ikusi arte!"],
+      ["No coneixes la resposta a una pregunta.", ["Ez dakit.", "Bai, eskerrik asko.", "Agur."], "Ez dakit."],
+      ["Quina frase tanca millor una primera conversa?", ["Laster arte!", "Zu nor zara?", "Mesedez."], "Laster arte!"]
+    ]
+  }
 };
-function shuffle(a){return [...a].sort(()=>Math.random()-0.5)}
-function opts(correct,pool){return shuffle([correct,...shuffle(pool.filter(x=>x!==correct)).slice(0,2)])}
-function makeQuestions(l){const q=[];const words=shuffle(l.words);words.slice(0,6).forEach(([eu,ca])=>q.push({type:'vocab',q:`Què vol dir «${eu}»?`,a:opts(ca,l.words.map(x=>x[1])),correct:ca}));words.slice(6,12).forEach(([eu,ca])=>q.push({type:'recall',q:`Com es diu «${ca}» en euskera?`,a:opts(eu,l.words.map(x=>x[0])),correct:eu}));shuffle(l.phrases).slice(0,6).forEach(([eu,ca])=>{const parts=eu.split(' ');const key=parts.length>2?parts[Math.floor(parts.length/2)]:parts[0];q.push({type:'phrase',q:`Completa la frase: «${parts.map(x=>x===key?'_____':x).join(' ')}»`,a:opts(key,parts),correct:key,help:ca})});q.push(...shuffle(l.dialogue).slice(0,6).map(([speaker,text],i)=>({type:'dialogue',q:`Diàleg · què diu la persona ${speaker}?`,a:opts(text,l.dialogue.map(x=>x[1])),correct:text,help:'Escolta el context i identifica la frase.'})));q.push(...shuffle(l.situations).slice(0,6).map(([text,correct])=>({type:'situation',q:text,a:opts(correct,l.words.map(x=>x[0])),correct})));return shuffle(q)}
-const lessons=Object.fromEntries(Object.entries(bank).map(([id,l])=>[id,{...l,questions:makeQuestions(l)}]));
-let state=JSON.parse(localStorage.getItem('kaixoState')||'{"points":0,"done":[],"streak":0,"last":""}');let cur=null;const $=id=>document.getElementById(id),home=$("home"),lesson=$("lesson");
-function save(){localStorage.setItem('kaixoState',JSON.stringify(state));updateHome()}
-function updateHome(){$("points").textContent=state.points;$('done').textContent=state.done.length;$('streak').textContent=state.streak;const levels=$('levels');levels.innerHTML='';[[1,'A1 · Hasiberria','28 lliçons · 840 preguntes',true],[2,'A2 · Intermedi','Desbloqueja completant A1',state.done.filter(x=>x<=28).length>=28],[3,'B1 · Intermedi avançat','Desbloqueja completant A2',false]].forEach(x=>{const b=document.createElement('button');b.className='level-card '+(x[3]?'active':'locked');b.disabled=!x[3];b.innerHTML=`<span class="badge">${x[0]===1?'A1':x[0]===2?'A2':'B1'}</span><div><b>${x[1]}</b><small>${x[2]}</small></div><span>${x[3]?'›':'🔒'}</span>`;levels.appendChild(b)});const next=Math.min(10,state.done.length+1);$('nextTitle').textContent=`Lliçó ${next} · ${lessons[next].title}`;$('nextSubtitle').textContent=lessons[next].subtitle;$('nextButton').textContent=state.done.includes(next)?'Repetir':'Començar';$('nextButton').onclick=()=>openLesson(next);let list=document.getElementById('lessonList');if(!list){list=document.createElement('section');list.className='lesson-list';list.id='lessonList';levels.parentNode.insertBefore(list,document.querySelector('.next'))}list.innerHTML='<h2 class="section-title">Les teves lliçons</h2><div class="lesson-grid"></div>';const grid=list.querySelector('.lesson-grid');for(let i=1;i<=10;i++){const done=state.done.includes(i),available=i===1||state.done.includes(i-1),b=document.createElement('button');b.className=`lesson-item ${done?'done':''} ${available?'':'locked'}`;b.disabled=!available;b.innerHTML=`<span>${done?'✓':i}</span><div><b>Lliçó ${i} · ${lessons[i].title}</b><small>${lessons[i].subtitle}</small></div><em>${done?'Repetir':available?'Començar':'🔒'}</em>`;if(available)b.onclick=()=>openLesson(i);grid.appendChild(b)}}
-function openLesson(id){if(!lessons[id])return;cur={id,i:0,score:0,answered:false};home.classList.add('hidden');lesson.classList.remove('hidden');intro();window.scrollTo({top:0,behavior:'smooth'})}
-function intro(){const l=lessons[cur.id];lesson.innerHTML=`<button class="back" id="backLesson">← Tornar al camí</button><section class="lesson-card intro-card"><div class="lesson-head"><small>A1 · Lliçó ${cur.id}/28</small><span>30 exercicis</span></div><div class="intro-badge">🎯</div><h2>${l.title}</h2><p class="objective">${l.objective}</p><div class="learn-box"><h3>Aprèn abans de practicar</h3><p>${l.grammar}</p><div class="phrase-list">${l.phrases.slice(0,4).map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div></div><div class="dialogue-box"><h3>Mini diàleg</h3>${l.dialogue.map(x=>`<p><b>${x[0]}</b> ${x[1]}</p>`).join('')}</div><button class="primary" id="startLesson">Començar els 30 exercicis</button></section>`;$('backLesson').onclick=goHome;$('startLesson').onclick=render}
-function render(){const l=lessons[cur.id],q=l.questions[cur.i],pct=Math.round(cur.i/l.questions.length*100),label={vocab:'Vocabulari',recall:'Recorda',phrase:'Construeix',dialogue:'Diàleg',situation:'Situació'}[q.type];lesson.innerHTML=`<button class="back" id="backLesson">← Tornar al camí</button><div class="lesson-head"><small>A1 · Lliçó ${cur.id}/28 · ${label}</small><span>⭐ ${cur.score}</span></div><div class="progress"><i style="width:${pct}%"></i></div><section class="lesson-card question"><small>${l.subtitle}</small><div class="word">${l.title}</div><p class="objective">${l.objective}</p><div class="question-number">Pregunta ${cur.i+1} de ${l.questions.length}</div><h2>${q.q}</h2>${q.help?`<p class="question-help">${q.help}</p>`:''}<div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div></section>`;$('backLesson').onclick=goHome;q.a.forEach(option=>{const btn=document.createElement('button');btn.className='answer';btn.textContent=option;btn.onclick=()=>answer(btn,option);$('answers').appendChild(btn)})}
-function answer(btn,value){if(cur.answered)return;cur.answered=true;const q=lessons[cur.id].questions[cur.i],fb=$('feedback'),buttons=document.querySelectorAll('.answer');buttons.forEach(b=>b.disabled=true);if(value===q.correct){btn.classList.add('correct');cur.score+=10;fb.textContent='Oso ondo! +10 ⭐';fb.className='feedback good'}else{btn.classList.add('wrong');buttons.forEach(b=>{if(b.textContent===q.correct)b.classList.add('correct')});fb.textContent=`La resposta correcta és «${q.correct}».`;fb.className='feedback bad'}setTimeout(()=>{cur.i++;cur.answered=false;cur.i<lessons[cur.id].questions.length?render():finish()},500)}
-function finish(){if(!state.done.includes(cur.id)){state.done.push(cur.id);state.points+=cur.score}const today=new Date().toISOString().slice(0,10);if(state.last!==today){state.streak++;state.last=today}save();lesson.innerHTML=`<section class="lesson-card result"><div class="big">🎉</div><h2>Oso ondo!</h2><p>Lliçó completada: 30 exercicis</p><p>Vocabulari · recorda · construcció · diàleg · situacions</p><h3>+${cur.score} punts ⭐</h3><p>🔥 Ratxa: ${state.streak} ${state.streak===1?'dia':'dies'}</p><button class="primary" id="repeatLesson">Repetir lliçó</button><button class="back" id="continueHome">← Tornar al camí</button></section>`;$('repeatLesson').onclick=()=>openLesson(cur.id);$('continueHome').onclick=goHome}
-function goHome(){lesson.classList.add('hidden');home.classList.remove('hidden');updateHome();window.scrollTo({top:0,behavior:'smooth'})}
+
+let state = JSON.parse(localStorage.getItem("kaixoState") || '{"points":0,"done":[],"streak":0,"last":""}');
+let cur = null;
+const $ = id => document.getElementById(id);
+const home = $("home");
+const lesson = $("lesson");
+
+function save() {
+  localStorage.setItem("kaixoState", JSON.stringify(state));
+  updateHome();
+}
+function updateHome() {
+  $("points").textContent = state.points;
+  $("done").textContent = state.done.length;
+  $("streak").textContent = state.streak;
+}
+function openLesson(id) {
+  if (!lessons[id]) return;
+  cur = { id, i: 0, score: 0, answered: false };
+  home.classList.add("hidden");
+  lesson.classList.remove("hidden");
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+function introHtml(intro) {
+  if (!intro) return "";
+  return `<section class="lesson-card intro-card">
+    <span class="intro-label">SITUACIÓ REAL</span>
+    <h2>${intro.title}</h2>
+    <div class="dialogue">${intro.dialogue.map(([who,text]) => `<div><b>${who}</b><span>${text}</span></div>`).join("")}</div>
+    <h3>🧠 Expressions que has de reconèixer</h3>
+    <div class="phrase-list">${intro.phrases.map(([eu,ca]) => `<div><b>${eu}</b><span>${ca}</span></div>`).join("")}</div>
+    <div class="grammar"><b>💡 Petit truc</b><p>${intro.grammar}</p></div>
+  </section>`;
+}
+function render() {
+  const l = lessons[cur.id], q = l.questions[cur.i];
+  const pct = Math.round((cur.i / l.questions.length) * 100);
+  lesson.innerHTML = `<button class="back" id="backLesson">← Tornar</button>
+    <div class="lesson-head"><small>A1 · Lliçó ${cur.id}/28</small><span>⭐ ${cur.score}</span></div>
+    <div class="progress"><i style="width:${pct}%"></i></div>
+    ${cur.i === 0 ? introHtml(l.intro) : ""}
+    <section class="lesson-card question"><small>${l.subtitle}</small><div class="word">${l.title}</div>
+      <p class="objective">${l.objective}</p><div class="question-number">Pregunta ${cur.i + 1} de ${l.questions.length}</div>
+      <h2>${q[0]}</h2><div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div>
+    </section>`;
+  $("backLesson").addEventListener("click", goHome);
+  q[1].forEach(option => {
+    const btn = document.createElement("button");
+    btn.className = "answer"; btn.textContent = option;
+    btn.addEventListener("click", () => answer(btn, option));
+    $("answers").appendChild(btn);
+  });
+}
+function answer(btn, value) {
+  if (cur.answered) return;
+  cur.answered = true;
+  const q = lessons[cur.id].questions[cur.i], feedback = $("feedback");
+  const buttons = document.querySelectorAll(".answer");
+  buttons.forEach(b => b.disabled = true);
+  if (value === q[2]) {
+    btn.classList.add("correct"); cur.score += 10;
+    feedback.textContent = "Oso ondo! +10 ⭐"; feedback.className = "feedback good";
+  } else {
+    btn.classList.add("wrong");
+    buttons.forEach(b => { if (b.textContent === q[2]) b.classList.add("correct"); });
+    feedback.textContent = `La resposta correcta és «${q[2]}».`;
+    feedback.className = "feedback bad";
+  }
+  setTimeout(() => {
+    cur.i++; cur.answered = false;
+    if (cur.i < lessons[cur.id].questions.length) { render(); window.scrollTo({top:0,behavior:"smooth"}); }
+    else finish();
+  }, 900);
+}
+function finish() {
+  const id = cur.id;
+  if (!state.done.includes(id)) { state.done.push(id); state.points += cur.score; }
+  const today = new Date().toISOString().slice(0,10);
+  if (state.last !== today) { state.streak++; state.last = today; }
+  save();
+  lesson.innerHTML = `<section class="lesson-card result"><div class="big">🎉</div><h2>Oso ondo!</h2>
+    <p>Lliçó completada</p><h3>+${cur.score} punts ⭐</h3>
+    <p>🔥 Ratxa: ${state.streak} ${state.streak === 1 ? "dia" : "dies"}</p>
+    <p class="result-note">Ja pots saludar, presentar-te i acomiadar-te en euskera.</p>
+    <button class="primary" id="continueHome">Continuar</button></section>`;
+  $("continueHome").addEventListener("click", goHome);
+}
+function goHome() {
+  lesson.classList.add("hidden"); home.classList.remove("hidden"); updateHome();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
 updateHome();
