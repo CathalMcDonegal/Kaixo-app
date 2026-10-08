@@ -1,0 +1,8 @@
+KAIXO 2.0 — versió preparada per GitHub
+- Base: prototip Kaixo 2.0.
+- 5 mòduls / 40 lliçons A1.
+- Motor de lliçons: 30 preguntes per lliçó.
+- Respostes barrejades amb Fisher-Yates.
+- Lliçó de números ampliada de 0 a 20.
+- Interfície CAT / ES / EN / FR.
+- Service Worker: kaixo-2.0-v2.

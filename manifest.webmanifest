@@ -1,23 +1,16 @@
 {
-  "name": "Kaixo · Aprèn euskera",
+  "name": "Kaixo 2.0 · Aprèn euskera",
   "short_name": "Kaixo",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#f4f7ff",
-  "theme_color": "#3156d3",
+  "description": "Aprèn euskera amb lliçons A1, converses, vocabulari i cultura basca.",
   "lang": "ca",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF8F2",
+  "theme_color": "#D6283A",
   "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
   ]
 }

@@ -1,13 +1,17 @@
-# Kaixo
+# Kaixo 2.0
 
-Aplicació mòbil per aprendre euskera de manera fàcil, ràpida i divertida.
+Base actualitzada del prototip Kaixo 2.0.
 
-Primera versió funcional: PWA, inici, A1, lliçons interactives, punts, ratxa i progrés local.
+## Inclou
+- 40 lliçons A1 en 5 mòduls.
+- 30 preguntes per lliçó (1.200 en total en el motor de lliçons).
+- Respostes barrejades amb posicions correctes equilibrades.
+- CAT / ES / EN / FR per a la interfície.
+- Progrés, punts i ratxa desats al dispositiu.
+- Repetició de lliçons completades i desbloqueig progressiu.
+- Converses, vocabulari, abecedari, números 0–20, contes, música/jocs, agenda i mini-diccionari.
+- Navegació enrere compatible amb el botó del telèfon.
+- PWA instal·lable i funcionament amb memòria cau.
 
-
-## v3
-- Pantalla de lliçó interactiva millorada.
-- Respostes generades amb listeners, sense HTML onclick fràgil.
-- Feedback visual de resposta correcta/incorrecta.
-- Lliçó 5 de repàs afegida.
-- Nova icona Kaixo inclosa per Android/PWA.
+## Publicació a GitHub Pages
+Puja els fitxers d'aquest paquet a l'arrel del repositori i substitueix l'`index.html` anterior.
