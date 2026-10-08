@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#D6283A"><meta name="description" content="Kaixo 2.0 · Aprèn euskera amb lliçons A1, converses, vocabulari i cultura basca."><title>Kaixo 2.0</title>
+<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Kaixo 2.0</title>
 <style>
 :root{--bg:#FFF8F2;--card:#fff;--ink:#1B2A41;--mut:#6b7280;--red:#D6283A;--yel:#FFD166;--grn:#1F7A3D;--line:#eadfd6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181f;--card:#1e242e;--ink:#f3efe9;--mut:#9aa3b2;--line:#2c3441}}
@@ -54,8 +54,6 @@ input{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);ba
 .say.big3{font-size:40px;background:var(--red);color:#fff;border-radius:50%;width:84px;height:84px}
 .big{font-size:80px;text-align:center}
 .soon{margin-top:14px;padding:14px;border:2px dashed var(--line);border-radius:14px;color:var(--mut);text-align:center}
-
-.sound{border:0;background:transparent;font-size:20px;cursor:pointer;padding:4px 8px;border-radius:10px}.sound:active{transform:scale(.94)}.abc button{border:1px solid var(--line);background:var(--card);color:var(--txt);border-radius:12px;padding:10px 7px;font-weight:800;cursor:pointer}.abc button small{display:block;font-size:11px;margin-top:3px;opacity:.8}.nums .sound{margin-left:auto}
 </style></head><body><main id="app"></main>
 <script>
 const I=["ca","es","en","fr"];let lang="ca",cur="home",ci=0,score=0,tried=0,done=0,shown={};
@@ -69,7 +67,7 @@ agenda:["Festes i tradicions d'Euskal Herria","Fiestas y tradiciones de Euskal H
 trans:["Cerca una paraula en euskera, català, castellà, anglès o francès","Busca una palabra en euskera, catalán, castellano, inglés o francés","Look up a word in Basque, Catalan, Spanish, English or French","Cherche un mot en basque, catalan, espagnol, anglais ou français"],
 abc:["Lletra → so → exemple → escolta","Letra → sonido → ejemplo → escucha","Letter → sound → example → listen","Lettre → son → exemple → écoute"],
 vocab:["Associa cada imatge amb la paraula; les que costen tornen més sovint","Asocia cada imagen con la palabra; las que cuestan vuelven más a menudo","Match each picture to the word; the hard ones come back more often","Associe chaque image au mot ; les plus difficiles reviennent plus souvent"],
-num:["Números de 0 a 20","Números del 0 al 20","Numbers from 0 to 20","Nombres de 0 à 20"]};
+num:["Els primers números, de l'1 al 10","Los primeros números, del 1 al 10","The first numbers, 1 to 10","Les premiers nombres, de 1 à 10"]};
 const U={streak:["ratxa","racha","streak","série"],points:["punts","puntos","points","points"],prog:["progrés","progreso","progress","progression"],cont:["Continua la teva lliçó","Continúa tu lección","Continue your lesson","Continue ta leçon"],l1:["Lliçó 1 · Kaixo!","Lección 1 · Kaixo!","Lesson 1 · Kaixo!","Leçon 1 · Kaixo!"],l1s:["Salutacions i comiat","Saludos y despedidas","Greetings and goodbyes","Salutations et au revoir"],go:["Començar","Empezar","Start","Commencer"],
 talk:["💬 Practica la conversa","💬 Practica la conversación","💬 Practise the conversation","💬 Pratique la conversation"],lock:["Bloquejat","Bloqueado","Locked","Verrouillé"],soon:["Aviat","Próximamente","Coming soon","Bientôt"],
 ok:["Correcte!","¡Correcto!","Correct!","Correct !"],no:["Torna-ho a provar","Inténtalo de nuevo","Try again","Réessaie"],next:["Següent","Siguiente","Next","Suivant"],fin:["Repte superat!","¡Reto superado!","Challenge complete!","Défi réussi !"],first:["a la primera","a la primera","first try","du premier coup"],again:["Repetir","Repetir","Again","Recommencer"],
@@ -97,13 +95,74 @@ const FEST=[[20,1,0,"Danborrada","Donostia"],[6,7,14,"Sanferminak","Iruñea"],[0
 const DICT=[["kaixo",["hola","hola","hello","salut"]],["agur",["adéu","adiós","goodbye","au revoir"]],["eskerrik asko",["moltes gràcies","muchas gracias","thank you","merci beaucoup"]],["mesedez",["si us plau","por favor","please","s'il te plaît"]],["bai",["sí","sí","yes","oui"]],["ez",["no","no","no","non"]],["ura",["aigua","agua","water","eau"]],["etxea",["casa","casa","house","maison"]],["txakurra",["el gos","el perro","the dog","le chien"]],["ondo",["bé","bien","well","bien"]],["egun on",["bon dia","buenos días","good morning","bonjour"]],["gabon",["bona nit","buenas noches","good night","bonne nuit"]]];
 const SOUNDS=[["tx","txakur",["gos","perro","dog","chien"]],["x","xake",["escacs","ajedrez","chess","échecs"]],["z","zuri",["blanc","blanco","white","blanc"]],["rr","herri",["poble","pueblo","town","village"]],["h","hotz",["fred","frío","cold","froid"]]];
 const LOGO='<svg width="44" height="44" viewBox="0 0 64 64"><rect width="64" height="64" rx="18" fill="#D6283A"/><path d="M17 40L12 54L28 43Z" fill="#fff"/><rect x="9" y="11" width="46" height="32" rx="11" fill="#fff"/><g transform="translate(22.3 16.5) scale(.42)" fill="#D6283A"><path d="M0 0H22V3Q17 6 17 14V36Q17 44 22 47V50H0V47Q5 44 5 36V14Q5 6 0 3Z"/><path d="M17 29L33 4H29V0H46V4H42L25 33Z"/><path d="M20 24L33 46H29V50H46V46H43L30 19Z"/></g><circle cx="52" cy="13" r="6" fill="#1F7A3D" stroke="#D6283A" stroke-width="3"/></svg>';
-const hasEU=()=>{try{return speechSynthesis.getVoices().some(v=>/^eu/i.test(v.lang))}catch(e){return false}};
-const AUDIO_BASE="",IMG_BASE="";
+const AUDIO_LOCAL_BASE="audio/";
+const AUDIO_REMOTE_BASE="https://commons.wikimedia.org/wiki/Special:Redirect/file/";
+const AUDIO_CACHE=new Map();
+const IMG_BASE="";
 const slug=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
-const tts=s=>{try{const u=new SpeechSynthesisUtterance(s);u.lang="eu-ES";speechSynthesis.speak(u)}catch(e){}};
-const say=s=>{if(AUDIO_BASE){const a=new Audio(AUDIO_BASE+slug(s)+".mp3");a.play().catch(()=>{if(hasEU())tts(s)})}else if(hasEU())tts(s)};
-const hasAudio=()=>!!AUDIO_BASE||hasEU();
-const sayBtn=s=>`<button class="sound" type="button" onclick="event.stopPropagation();say('${String(s).replace(/\\/g,"\\\\").replace(/'/g,"\\'")}')" aria-label="Escolta">🔊</button>`;
+const audioKey=s=>String(s).trim().toLowerCase();
+const hasEU=()=>{try{return speechSynthesis.getVoices().some(v=>/^eu(?:-|$)/i.test(v.lang))}catch(e){return false}};
+const tts=s=>{try{
+  const u=new SpeechSynthesisUtterance(s);
+  u.lang="eu-ES";
+  u.rate=.88;
+  u.pitch=1;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}catch(e){}};
+const remoteCandidates=s=>{
+  // Wikimedia Commons / Lingua Libre: enregistraments reals de pronunciació en euskera.
+  // El corpus utilitza el patró Eus-paraula.ogg; provem també OGA i MP3.
+  const clean=String(s).trim().replace(/[“”"']/g,"").replace(/[?!.:,;]+$/,"");
+  const enc=encodeURIComponent(clean);
+  const base=AUDIO_REMOTE_BASE+"Eus-"+enc;
+  return [base+".ogg",base+".oga",base+".mp3"];
+};
+const playAudioUrl=(url,onFail)=>{
+  const a=new Audio();
+  a.preload="auto";
+  a.src=url;
+  a.onended=()=>{};
+  a.onerror=()=>onFail&&onFail();
+  const pr=a.play();
+  if(pr&&pr.catch)pr.catch(()=>onFail&&onFail());
+  return a;
+};
+const say=s=>{
+  const key=audioKey(s);
+  if(AUDIO_CACHE.has(key)){
+    const u=AUDIO_CACHE.get(key);
+    if(u==="tts"){tts(s);return}
+    playAudioUrl(u,()=>{AUDIO_CACHE.delete(key);say(s)});
+    return;
+  }
+  // 1) Fitxer local, si més endavant el paquet d'àudio el porta.
+  const local=AUDIO_LOCAL_BASE+slug(s)+".ogg";
+  playAudioUrl(local,()=>{
+    // 2) Pronunciació real de Wikimedia Commons (Lingua Libre / Xabier Cañas)
+    const candidates=remoteCandidates(s);
+    let i=0;
+    const next=()=>{
+      if(i<candidates.length){
+        const u=candidates[i++];
+        const a=new Audio();
+        a.preload="auto";
+        a.src=u;
+        a.onerror=next;
+        a.oncanplaythrough=()=>{
+          AUDIO_CACHE.set(key,u);
+          a.play().catch(()=>{});
+        };
+        a.load();
+      }else{
+        // 3) Últim recurs: veu euskera del dispositiu, si n'hi ha.
+        if(hasEU()){AUDIO_CACHE.set(key,"tts");tts(s)}
+      }
+    };
+    next();
+  });
+};
+const hasAudio=()=>true;
 const IMG={"txakur":"🐶","txori":"🐦","etxe":"🏠","xake":"♟️","xaboi":"🧼","zuri":"⚪","zapata":"👞","izar":"⭐","arrain":"🐟","hotz":"🥶","ama":"👩","aita":"👨","seme":"👦","alaba":"👧","aitona":"👴","amona":"👵","familia":"👨‍👩‍👧‍👦","senarra":"🤵","emaztea":"👰","laguna":"🧑‍🤝‍🧑","irakaslea":"🧑‍🏫","ikaslea":"🧑‍🎓","gizona":"👨","emakumea":"👩","mutila":"👦","neska":"👧","haurra":"🧒","jendea":"👥","gaztea":"🧑","zaharra":"👴","ilehoria":"👱","pozik nago":"😊","triste nago":"😢","haserre nago":"😠","nekatuta nago":"😴","goseak nago":"🤤","egarri naiz":"🥤","alaia naiz":"😄","lotsatia da":"😳","ondo nago":"🙂","goiza":"🌅","eguerdia":"🌞","arratsaldea":"🌇","gaua":"🌙","gaur":"📅","esnatzen naiz":"⏰","dutxatzen naiz":"🚿","gosaltzen dut":"🥐","lanera noa":"🏢","bazkaltzen dut":"🍽️","ikasten dut":"📚","etxera noa":"🏠","afaltzen dut":"🍲","telebista ikusten dut":"📺","kirola egiten dut":"🏃","lotara noa":"🛏️","etxea garbitzen dut":"🧹","ontziak garbitzen ditut":"🧽","arropa garbitzen dut":"🧺","janaria prestatzen dut":"🥘","sukaldatzen dut":"👩‍🍳","erosketak egiten ditut":"🛒","ohea egiten dut":"🛏️","leihoak garbitzen ditut":"🪟","txakurra paseatzen dut":"🐕","zaborra ateratzen dut":"🗑️","ogia":"🍞","esnea":"🥛","ura":"💧","kafea":"☕","garagardoa":"🍺","ardoa":"🍷","zukua":"🧃","arroza":"🍚","haragia":"🥩","arraina":"🐟","fruta":"🍎","gazta":"🧀","kafe bat, mesedez":"☕","ur botila bat, mesedez":"💧","menua, mesedez":"📋","kontua, mesedez":"🧾","tarta bat nahi dut":"🍰","egongela":"🛋️","sukaldea":"🍳","logela":"🛏️","bainugela":"🛁","komuna":"🚽","terraza":"🪴","atea":"🚪","leihoa":"🪟","igogailua":"🛗","garajea":"🚗","aulkia":"🪑","ohea":"🛏️","sofa":"🛋️","telebista":"📺","ordenagailua":"💻","telefonoa":"📱","lanpara":"💡","liburua":"📖","giltza":"🔑","poltsa":"👜","denda":"🏪","supermerkatua":"🛒","farmazia":"💊","okindegia":"🥖","harategia":"🥩","liburu-denda":"📚","dirua":"💶","txartela":"💳","kutxa":"🧾","kamiseta":"👕","prakak":"👖","gona":"👗","jaka":"🧥","zapatak":"👞","gorria":"🔴","urdina":"🔵","berdea":"🟢","horia":"🟡","beltza":"⚫","zuria":"⚪","futbola":"⚽","saskibaloia":"🏀","igeriketa":"🏊","txirrindularitza":"🚴","mendira noa":"🥾","irakurtzen dut":"📖","musika entzuten dut":"🎧","dantzatzen dut":"💃","abesten dut":"🎤","marrazten dut":"🎨","korrika egiten dut":"🏃","musika":"🎵","abestia":"🎶","abeslaria":"🎤","gitarra":"🎸","pianoa":"🎹","danborra":"🥁","trikitixa":"🪗","jokoa":"🎲","kartak":"🃏","xakea":"♟️","hiria":"🏙️","kalea":"🛣️","plaza":"⛲","parkea":"🌳","zubia":"🌉","ospitalea":"🏥","eskola":"🏫","liburutegia":"📚","museoa":"🏛️","eliza":"⛪","udaletxea":"🏢","geltokia":"🚉","autobusa":"🚌","trena":"🚆","metroa":"🚇","bizikleta":"🚲","hegazkina":"✈️","oinez noa":"🚶","eskuinera":"➡️","ezkerrera":"⬅️","zuzen":"⬆️","begia":"👁️","sudurra":"👃","ahoa":"👄","belarria":"👂","eskua":"✋","hanka":"🦵","hortza":"🦷","buruko mina dut":"🤕","gaixo nago":"🤒","euria ari du":"🌧️","eguzkia dago":"☀️","haizea dago":"💨","hotz dago":"🥶","bero dago":"🥵","elurra ari du":"❄️","udaberria":"🌸","uda":"🏖️","udazkena":"🍂","negua":"⛄","dantza":"💃","Olentzero":"🎄","kalejira":"🎺","jaia":"🎉","Urte Berri on!":"🎆","Sanferminak":"🐂","Danborrada":"🥁","ikaslea naiz":"🧑‍🎓","irakaslea naiz":"🧑‍🏫","helbidea":"📍","posta elektronikoa":"📧","sinadura":"✍️","jaioteguna":"🎂"};
 const im=(w,big)=>{const e=IMG[w];if(!e&&!IMG_BASE)return"";const f=e?`this.outerHTML='${e}'`:"this.remove()";const x=IMG_BASE?`<img class="pic" src="${IMG_BASE+slug(w)}.webp" alt="" onerror="${f}">`:e;return big?`<span class="imb">${x}</span>`:`<span class="im">${x}</span>`};
 const sp=s=>hasAudio()?`<button class="say" onclick="say('${s.replace(/'/g,"\\'")}')">🔊</button>`:"";
@@ -131,7 +190,7 @@ s:[[["Has d'escriure el teu número de telèfon. Quin camp és?","Tienes que esc
 v:[["txakur",["gos","perro","dog","chien"]],["txori",["ocell","pájaro","bird","oiseau"]],["etxe",["casa","casa","house","maison"]],["txikia",["petit","pequeño","small","petit"]],["xake",["escacs","ajedrez","chess","échecs"]],["xaboi",["sabó","jabón","soap","savon"]],["zuri",["blanc","blanco","white","blanc"]],["zapata",["sabata","zapato","shoe","chaussure"]],["izar",["estrella","estrella","star","étoile"]],["herri",["poble","pueblo","town","village"]],["arrain",["peix","pez","fish","poisson"]],["hotz",["fred","frío","cold","froid"]]],
 c:[{b:["Zer da hau? 🐶",["Què és això? 🐶","¿Qué es esto? 🐶","What is this? 🐶","Qu'est-ce que c'est ? 🐶"]],o:[0,2,5]},{b:["Zer da hau? 🏠",["Què és això? 🏠","¿Qué es esto? 🏠","What is this? 🏠","Qu'est-ce que c'est ? 🏠"]],o:[2,0,10]},{b:["Zer da hau? ⭐",["Què és això? ⭐","¿Qué es esto? ⭐","What is this? ⭐","Qu'est-ce que c'est ? ⭐"]],o:[8,6,1]}],
 s:[[["Quina paraula té el so «ch» (tx)?","¿Qué palabra tiene el sonido «ch» (tx)?","Which word has the “ch” sound (tx)?","Quel mot a le son « tch » (tx) ?"],0,[4,6]],[["Quina paraula té el so «sh» (x)?","¿Qué palabra tiene el sonido «sh» (x)?","Which word has the “sh” sound (x)?","Quel mot a le son « ch » (x) ?"],4,[6,11]],[["Quina paraula té una «rr» forta?","¿Qué palabra tiene una «rr» fuerte?","Which word has a strong “rr”?","Quel mot a un « rr » roulé ?"],10,[8,11]]]},
-{t:["Números 0–20","Números 0–20","Numbers 0–20","Nombres 0–20"],mis:["Missió: comptar de zero a onze","Misión: contar de cero a once","Mission: count from zero to eleven","Mission : compter de zéro à onze"],
+{t:["Números 0–11","Números 0–11","Numbers 0–11","Nombres 0–11"],mis:["Missió: comptar de zero a onze","Misión: contar de cero a once","Mission: count from zero to eleven","Mission : compter de zéro à onze"],
 v:["zero","bat","bi","hiru","lau","bost","sei","zazpi","zortzi","bederatzi","hamar","hamaika"].map((w,i)=>[w,[""+i,""+i,""+i,""+i]]),
 c:[{b:["Zenbat da bi gehi bi?",["Quant és dos més dos?","¿Cuánto es dos más dos?","What is two plus two?","Combien font deux plus deux ?"]],o:[4,5,6]},{b:["Zenbat da hiru gehi bost?",["Quant és tres més cinc?","¿Cuánto es tres más cinco?","What is three plus five?","Combien font trois plus cinq ?"]],o:[8,7,9]},{b:["Zenbat da bat gehi bederatzi?",["Quant és un més nou?","¿Cuánto es uno más nueve?","What is one plus nine?","Combien font un plus neuf ?"]],o:[10,9,11]}],
 s:[[["Com es diu el nombre 7?","¿Cómo se dice el número 7?","How do you say the number 7?","Comment dit-on le nombre 7 ?"],7,[6,8]],[["Com es diu el nombre 0?","¿Cómo se dice el número 0?","How do you say the number 0?","Comment dit-on le nombre 0 ?"],0,[1,10]],[["Com es diu el nombre 11?","¿Cómo se dice el número 11?","How do you say the number 11?","Comment dit-on le nombre 11 ?"],11,[10,9]]]},
@@ -184,30 +243,27 @@ let st={p:0,dn:[],s:0,day:""},cl=0,LQs=[],qi=0,sc=0,tr1=0,ldone=0,LO=[];
 try{st=Object.assign(st,JSON.parse(localStorage.getItem("kx-st"))||{})}catch(e){}
 if(st.d&&!st.dn.length)st.dn=[0];
 const sv=()=>{try{localStorage.setItem("kx-st",JSON.stringify(st))}catch(e){}};
-const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-let optPos=0;
-const arrange=o=>{const ci=o.findIndex(x=>x[1]);if(ci<0)return shuf(o);const good=o[ci],bad=o.filter((_,i)=>i!==ci);shuf(bad);const out=new Array(o.length),pos=optPos++%o.length;out[pos]=good;let j=0;for(let i=0;i<out.length;i++)if(i!==pos)out[i]=bad[j++];return out};
-const balanceOpts=o=>{if(!o.length)return o;const ci=o.findIndex(x=>x[1]);if(ci<0)return shuf(o);const target=qi%o.length;const a=shuf([...o]);const ni=a.findIndex(x=>x[1]);[a[ni],a[target]]=[a[target],a[ni]];return a};
-function intro(i,push=true){if(push){try{history.pushState({v:"intro",i},"",location.href)}catch(e){}}const L=LS[i];document.getElementById("app").innerHTML=`<button class="back" onclick="go('learn')">← ${t(N.learn)}</button><h2 class="vt">${t(U.lesson)} ${i+1} · ${t(L.t)}</h2><p class="mut">${t(L.mis)}</p><h3>🧠 ${t(SN[2])}</h3>${L.v.map(v=>`<div class="row"><span>${im(v[0])}<span class="eu">${v[0]}</span> ${sp(v[0])}</span><span class="sm">${t(v[1])}</span></div>`).join("")}<button class="pri" onclick="lesson(${i})">${t(U.go)} · 30</button>`}
-function learnHtml(){let k=0;return MOD.map(m=>{const s0=k;let h=`<div class="row"><b>${t(m[0])}</b><span class="sm">${st.dn.filter(d=>d>=s0&&d<s0+m[1]).length}/${m[1]}</span></div>`;for(let n=0;n<m[1];n++,k++){if(LS[k]){const open=st.dn.includes(k)||k===0||st.dn.includes(k-1);h+=open?`<button class="opt" onclick="intro(${k})"><span class="eu">${k+1} · ${t(LS[k].t)}</span> ${st.dn.includes(k)?"✅":"▶"}</button>`:`<div class="row mut"><span>${k+1} · ${t(LS[k].t)}</span><span>🔒 ${t(U.lock)}</span></div>`}else if(s0==0)h+=`<div class="row mut"><span>${k+1}</span><span>🔒 ${t(U.soonL)}</span></div>`}return h}).join("")}
-function lesson(i,push=true){if(push){try{history.pushState({v:"lesson",i},"",location.href)}catch(e){}}cl=i;const q=[];for(let k=0;k<12;k++)q.push({s:k<6?2:3,k:"a",i:k});[0,1,3,4,6,7,8,10].forEach(k=>q.push({s:4,k:"b",i:k}));LS[i].c.forEach((c,j)=>q.push({s:5,k:"c",j}));LS[i].s.forEach((c,j)=>q.push({s:5,k:"d",j}));[2,5,9,11].forEach(k=>q.push({s:6,k:"b",i:k}));
-LQs=q;qi=0;sc=0;optPos=0;document.getElementById("app").innerHTML=`<button class="back" onclick="go('learn')">← ${t(N.learn)}</button><div id="conv"></div>`;showQ()}
+const shuf=a=>a.sort(()=>Math.random()-.5);
+function intro(i){const L=LS[i];document.getElementById("app").innerHTML=`<button class="back" onclick="go('learn')">← ${t(N.learn)}</button><h2 class="vt">${t(U.lesson)} ${i+1} · ${t(L.t)}</h2><p class="mut">${t(L.mis)}</p><h3>🧠 ${t(SN[2])}</h3>${L.v.map(v=>`<div class="row"><span>${im(v[0])}<span class="eu">${v[0]}</span> ${sp(v[0])}</span><span class="sm">${t(v[1])}</span></div>`).join("")}<button class="pri" onclick="lesson(${i})">${t(U.go)} · 30</button>`}
+function learnHtml(){let k=0;return MOD.map(m=>{const s0=k;let h=`<div class="row"><b>${t(m[0])}</b><span class="sm">${st.dn.filter(d=>d>=s0&&d<s0+m[1]).length}/${m[1]}</span></div>`;for(let n=0;n<m[1];n++,k++){if(LS[k])h+=`<button class="opt" onclick="intro(${k})"><span class="eu">${k+1} · ${t(LS[k].t)}</span> ${st.dn.includes(k)?"✅":"▶"}</button>`;else if(s0==0)h+=`<div class="row mut"><span>${k+1}</span><span>🔒 ${t(U.soonL)}</span></div>`}return h}).join("")}
+function lesson(i){cl=i;const q=[];for(let k=0;k<12;k++)q.push({s:k<6?2:3,k:"a",i:k});[0,1,3,4,6,7,8,10].forEach(k=>q.push({s:4,k:"b",i:k}));LS[i].c.forEach((c,j)=>q.push({s:5,k:"c",j}));LS[i].s.forEach((c,j)=>q.push({s:5,k:"d",j}));[2,5,9,11].forEach(k=>q.push({s:6,k:"b",i:k}));
+LQs=q;qi=0;sc=0;document.getElementById("app").innerHTML=`<button class="back" onclick="go('learn')">← ${t(N.learn)}</button><div id="conv"></div>`;showQ()}
 function showQ(){const el=document.getElementById("conv"),L=LS[cl],V=L.v;el.classList.remove("rev");ldone=0;tr1=0;
 if(qi>=LQs.length){if(!st.dn.includes(cl))st.dn.push(cl);const td=new Date().toDateString(),y=new Date(Date.now()-864e5).toDateString();if(st.day!=td){st.s=st.day==y?st.s+1:1;st.day=td}sv();
 el.innerHTML=`<div class="soon"><h2>🏆 ${t(U.fin)}</h2><p>${sc}/${LQs.length} ${t(U.first)}</p>${cl+1<LS.length?`<button class="pri" onclick="intro(${cl+1})">${t(U.nextL)}</button>`:""}<button class="pri" onclick="go('learn')">${t(N.learn)}</button><button class="pri" onclick="lesson(${cl})">${t(U.again)}</button></div>`;return}
 const q=LQs[qi];let auto=null,h=`<div class="bar"><i style="width:${qi/LQs.length*100}%"></i></div><p class="sm">${qi+1}/${LQs.length} · ${S[q.s]} ${t(SN[q.s])}</p>`,o,m4=i=>{const r=[i];while(r.length<4){const x=Math.floor(Math.random()*12);if(!r.includes(x))r.push(x)}return shuf(r)};
-if(q.k=="a"){const w=V[q.i][0];if(q.s==3&&hasAudio()){auto=w;h+=`<div class="pc"><button class="say big3" onclick="say('${w.replace(/'/g,"\\'")}')">🔊</button><div class="sm">${t(U.listen)}</div></div>`}else h+=`<div class="pc">${im(w,1)}<span class="eu big2">${w}</span> ${sp(w)}</div>`;o=balanceOpts(m4(q.i).map(j=>[t(V[j][1]),j==q.i]))}
-else if(q.k=="b"){h+=`<div class="pc">${im(V[q.i][0],1)}<span class="big2">${t(V[q.i][1])}</span></div>`;o=balanceOpts(m4(q.i).map(j=>[V[j][0],j==q.i,1]))}
-else if(q.k=="c"){const c=L.c[q.j];h+=`<div class="bub"><span class="av">🧑</span><div><span class="eu">${c.b[0]}</span> ${sp(c.b[0])}<div class="sm">${t(c.b[1])}</div></div></div><p class="sm rt">${t(U.rep)}</p>`;o=balanceOpts(c.o.map((x,n)=>typeof x=="number"?[V[x][0],n==0,1,t(V[x][1])]:[x[0],n==0,1,t(x[1])]))}
-else{const c=L.s[q.j];h+=`<div class="pc">${t(c[0])}</div>`;o=balanceOpts([[V[c[1]][0],1,1],...c[2].map(x=>[V[x][0],0,1])])}
-o=arrange(o);LO=o;el.innerHTML=h+o.map((x,n)=>`<button class="opt ${q.k=="c"?"rp":""}" onclick="lp(${n},this)"><span class="${x[2]?"eu":""}">${x[0]}</span>${x[3]?`<div class="sm tr">${x[3]}</div>`:""}</button>`).join("")+`<div id="fb"></div>`;if(auto)say(auto)}
+if(q.k=="a"){const w=V[q.i][0];if(q.s==3&&hasAudio()){auto=w;h+=`<div class="pc"><button class="say big3" onclick="say('${w.replace(/'/g,"\\'")}')">🔊</button><div class="sm">${t(U.listen)}</div></div>`}else h+=`<div class="pc">${im(w,1)}<span class="eu big2">${w}</span> ${sp(w)}</div>`;o=m4(q.i).map(j=>[t(V[j][1]),j==q.i])}
+else if(q.k=="b"){h+=`<div class="pc">${im(V[q.i][0],1)}<span class="big2">${t(V[q.i][1])}</span></div>`;o=m4(q.i).map(j=>[V[j][0],j==q.i,1])}
+else if(q.k=="c"){const c=L.c[q.j];h+=`<div class="bub"><span class="av">🧑</span><div><span class="eu">${c.b[0]}</span> ${sp(c.b[0])}<div class="sm">${t(c.b[1])}</div></div></div><p class="sm rt">${t(U.rep)}</p>`;o=shuf(c.o.map((x,n)=>typeof x=="number"?[V[x][0],n==0,1,t(V[x][1])]:[x[0],n==0,1,t(x[1])]))}
+else{const c=L.s[q.j];h+=`<div class="pc">${t(c[0])}</div>`;o=shuf([[V[c[1]][0],1,1],...c[2].map(x=>[V[x][0],0,1])])}
+LO=o;el.innerHTML=h+o.map((x,n)=>`<button class="opt ${q.k=="c"?"rp":""}" onclick="lp(${n},this)"><span class="${x[2]?"eu":""}">${x[0]}</span>${x[3]?`<div class="sm tr">${x[3]}</div>`:""}</button>`).join("")+`<div id="fb"></div>`;if(auto)say(auto)}
 function lp(n,el){if(ldone)return;const o=LO[n];document.getElementById("conv").classList.add("rev");
 if(o[1]){el.classList.add("ok");ldone=1;if(!tr1){sc++;st.p+=10;sv()}document.getElementById("fb").innerHTML=`<p><b>✅ ${t(U.ok)}</b></p><button class="pri" onclick="qi++;showQ()">${t(U.next)}</button>`}
 else{el.classList.add("bad");tr1=1;document.getElementById("fb").innerHTML=`<p>❌ ${t(U.no)}</p>`}}
 function find(q){q=q.trim().toLowerCase();const r=document.getElementById("res");if(!q){r.innerHTML="";return}
 const m=DICT.filter(d=>d[0].includes(q)||d[1].some(x=>x.includes(q)));
 r.innerHTML=m.length?m.map(d=>`<div class="row"><span class="eu">${d[0]}</span><span>${t(d[1])}</span></div>`).join(""):`<p class="mut">${t(U.none)}</p>`}
-function go(v,push=true){if(push&&v!==cur){try{history.pushState({v},"",location.href)}catch(e){}}cur=v;document.documentElement.lang=lang;const a=document.getElementById("app");
+function go(v){cur=v;document.documentElement.lang=lang;const a=document.getElementById("app");
 if(v=="home"){let nx=LS.findIndex((l,i)=>!st.dn.includes(i));if(nx<0)nx=LS.length-1;
 const LN={ca:"Català",es:"Español",en:"English",fr:"Français"};
 a.innerHTML=`<div class="top">${LOGO}<h1>KAIXO</h1><select class="lsel" aria-label="Idioma" onchange="setLang(this.value)">${I.map(c=>`<option value="${c}" ${c==lang?"selected":""}>${LN[c]}</option>`).join("")}</select></div>
@@ -222,11 +278,10 @@ if(v=="learn")x+=learnHtml();
 else if(v=="tales")x+=`<div class="row"><b>A1</b></div>${TALE.map((l,i)=>`<button class="opt" onclick="shown[${i}]=!shown[${i}];go('tales')"><span class="eu">${l[0]}</span>${shown[i]?`<div class="sm">${t(l[1])}</div>`:""}</button>`).join("")}${lock}`;
 else if(v=="agenda")x+=FEST.map(f=>{const d=new Date(2026,f[1]-1,f[0]||1),o=f[0]?{day:"numeric",month:"long"}:{month:"long"};let s=d.toLocaleDateString(lang,o);if(f[2])s=f[0]+"–"+f[2]+" "+d.toLocaleDateString(lang,{month:"long"});return`<div class="row"><div><div class="eu">${f[3]}</div><div class="sm">${f[4]}</div></div><span>${s}</span></div>`}).join("");
 else if(v=="trans")x+=`<input id="q" placeholder="${t(U.ph)}" oninput="find(this.value)"><div id="res"></div><p class="sm">${t(U.dict)}</p>`;
-else if(v=="abc")x+=`<div class="abc">${"A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z TX TS TZ DZ".split(" ").map(c=>`<button type="button" onclick="say('${c}')">${c}<small>🔊</small></button>`).join("")}</div><h3>🔊 ${t(N.abc)}</h3>${SOUNDS.map(s=>`<div class="row"><span><b>${s[0]}</b> · <span class="eu">${s[1]}</span> ${sp(s[1])}</span><span>${sayBtn(s[1])}</span></div><div class="sm" style="margin:-8px 0 10px 12px">${t(s[2])}</div>`).join("")}`;
+else if(v=="abc")x+=`<p class="sm">🔊 Àudio de pronunciació: Wikimedia Commons / Lingua Libre · CC BY-SA 4.0 quan s'indica a l'enregistrament.</p><div class="abc">${"A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z TX TS TZ DZ".split(" ").map(c=>`<span>${c}</span>`).join("")}</div><h3>🔊</h3>${SOUNDS.map(s=>`<div class="row"><span><b>${s[0]}</b> · <span class="eu">${s[1]}</span> ${sp(s[1])}</span><span class="sm">${t(s[2])}</span></div>`).join("")}`;
 else if(v=="vocab")x+=`<div id="card"></div><h3>${t(N.vocab)}</h3><div id="wl">${wl()}</div>`;
-else if(v=="num")x+=`<div class="nums">${["zero","bat","bi","hiru","lau","bost","sei","zazpi","zortzi","bederatzi","hamar","hamaika","hamabi","hamahiru","hamalau","hamabost","hamasei","hamazazpi","hemezortzi","hemeretzi","hogei"].map((n,i)=>`<div><b>${i}</b><span class="eu">${n}</span> ${sp(n)}${sayBtn(n)}</div>`).join("")}</div><p class="sm">${t(D.num)}</p>`;
+else if(v=="num")x+=`<p class="sm">🔊 Pronunciació real en euskera · Wikimedia Commons / Lingua Libre.</p><div class="nums">${["bat","bi","hiru","lau","bost","sei","zazpi","zortzi","bederatzi","hamar"].map((n,i)=>`<div><b>${i+1}</b><span class="eu">${n}</span> ${sp(n)}</div>`).join("")}</div>`;
 else x+=`<div class="soon">🚧 ${t(U.soon)}</div>`;
 a.innerHTML=x;if(v=="vocab"){done=0;card()}}
-try{history.replaceState({v:"home"},"",location.href);addEventListener("popstate",e=>{const s=e.state||{v:"home"};if(s.v==="intro")intro(s.i,false);else if(s.v==="lesson")lesson(s.i,false);else go(s.v||"home",false)})}catch(e){}
-go("home",false);
+go("home");
 </script></body></html>
