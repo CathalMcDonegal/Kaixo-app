@@ -1,12 +1,9 @@
-KAIXO 2.0 — actualització Aprèn v1
+KAIXO 2.0 · V2
 
-- 40 lliçons A1 distribuïdes en 5 mòduls (8/7/9/9/7).
-- 30 preguntes per lliçó: 1.200 preguntes en total.
-- Respostes amb posició equilibrada: la correcta no queda sistemàticament en la primera opció.
-- Barrejament Fisher-Yates en lloc de sort aleatori.
-- Números de la secció específica: 0–20.
-- Mantingudes les seccions de Kaixo 2.0: Contes, Música, Agenda, Traductor, Abecedari, Vocabulari i Números.
-- Mantingut el selector CAT / ES / EN / FR.
-- Mantinguda la navegació enrere i el progrés local.
-
-Validacions: JavaScript sense errors de sintaxi; 40 lliçons; 30 preguntes per lliçó; índexs de respostes vàlids.
+Millores d’aquest paquet:
+- Aprèn: 40 lliçons A1 i 30 preguntes per lliçó.
+- Respostes equilibrades i barrejades.
+- Números 0–20 amb botó d’escolta.
+- Abecedari amb escolta de lletres i sons d’exemple.
+- Manté CAT / ES / EN / FR.
+- Service Worker actualitzat a v2.
