@@ -1,8 +1,12 @@
-KAIXO 2.0 — versió preparada per GitHub
-- Base: prototip Kaixo 2.0.
-- 5 mòduls / 40 lliçons A1.
-- Motor de lliçons: 30 preguntes per lliçó.
-- Respostes barrejades amb Fisher-Yates.
-- Lliçó de números ampliada de 0 a 20.
-- Interfície CAT / ES / EN / FR.
-- Service Worker: kaixo-2.0-v2.
+KAIXO 2.0 — actualització Aprèn v1
+
+- 40 lliçons A1 distribuïdes en 5 mòduls (8/7/9/9/7).
+- 30 preguntes per lliçó: 1.200 preguntes en total.
+- Respostes amb posició equilibrada: la correcta no queda sistemàticament en la primera opció.
+- Barrejament Fisher-Yates en lloc de sort aleatori.
+- Números de la secció específica: 0–20.
+- Mantingudes les seccions de Kaixo 2.0: Contes, Música, Agenda, Traductor, Abecedari, Vocabulari i Números.
+- Mantingut el selector CAT / ES / EN / FR.
+- Mantinguda la navegació enrere i el progrés local.
+
+Validacions: JavaScript sense errors de sintaxi; 40 lliçons; 30 preguntes per lliçó; índexs de respostes vàlids.
